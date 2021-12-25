@@ -6,10 +6,9 @@ import { fetchPlugin } from './plugins/fetch-plugin';
 
 const App = () => {
   const ref = useRef<any>(null);
-  const [code, setCode] = useState('');
+  const iframe = useRef<any>(null);
   const [input, setInput] = useState('');
 
-  // get the esbuild service from public dir
   const startService = async () => {
     ref.current = await esbuild.startService({
       worker: true,
@@ -34,10 +33,22 @@ const App = () => {
       define: { 'process.env.NODE_ENV': '"production"', global: 'window' },
     });
 
-    setCode(result.outputFiles[0].text);
+    iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*');
   };
 
-  const frame = `<script>${code}</script>`;
+  const frame = `
+    <html>
+      <head></head>
+      <body>
+        <div id="root"></div>
+        <script>
+          window.addEventListener('message', (event) => {
+            eval(event.data);
+          }, false);
+        </script>
+      </body>
+    </html>
+  `;
 
   return (
     <div>
@@ -45,10 +56,12 @@ const App = () => {
       <div>
         <button onClick={transform}>Submit</button>
       </div>
-      <pre>
-        <code>{code}</code>
-      </pre>
-      <iframe title="preview" srcDoc={frame} sandbox="allow-scripts"></iframe>
+      <iframe
+        ref={iframe}
+        title="preview"
+        srcDoc={frame}
+        sandbox="allow-scripts"
+      ></iframe>
     </div>
   );
 };
