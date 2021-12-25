@@ -8,7 +8,7 @@ import CodeEditor from './components/CodeEditor';
 const App = () => {
   const ref = useRef<any>(null);
   const iframe = useRef<any>(null);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState<string | undefined>('');
 
   const startService = async () => {
     ref.current = await esbuild.startService({
@@ -62,8 +62,12 @@ const App = () => {
 
   return (
     <div>
-      <CodeEditor />
-      <textarea onChange={(e) => setInput(e.target.value)} />
+      <CodeEditor
+        initialValue="// write your code here"
+        onChange={(value: string | undefined, ev) => {
+          setInput(value);
+        }}
+      />
       <div>
         <button onClick={transform}>Submit</button>
       </div>
