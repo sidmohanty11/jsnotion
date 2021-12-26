@@ -1,4 +1,5 @@
-import 'bulmaswatch/slate/bulmaswatch.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bulmaswatch/darkly/bulmaswatch.min.css';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from './state';
