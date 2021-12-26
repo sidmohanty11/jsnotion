@@ -44,7 +44,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
       </button>
       <MonacoEditor
         onMount={handleEditorDidMount}
-        height="500px"
+        height="100%"
         defaultLanguage="javascript"
         value={initialValue}
         theme="vs-dark"
@@ -58,6 +58,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
           scrollBeyondLastLine: false,
           automaticLayout: true,
           tabSize: 2,
+          fontFamily: 'Red Hat Mono, monospace',
         }}
         onChange={onChange}
       />
