@@ -4,7 +4,7 @@ import { Cell } from '../../state';
 import { CodeEditor } from '../CodeEditor';
 import { Preview } from '../Preview';
 import { Resizable } from '../Resizable';
-import { useActions } from '../../hooks';
+import { useActions, useTypedSelector } from '../../hooks';
 
 interface CodeCellProps {
   cell: Cell;
@@ -12,22 +12,7 @@ interface CodeCellProps {
 
 const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const { updateCell } = useActions();
-  const [error, setError] = useState('');
-  const [code, setCode] = useState<string>('');
-
-  useEffect(() => {
-    const timer = setTimeout(async () => {
-      const output = await bundler(cell.content);
-      if (output) {
-        setError(output.err);
-        setCode(output.code);
-      }
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [cell.content]);
+  const bundle = useTypedSelector((state) => state.bundles[cell.id]);
 
   return (
     <Resizable direction="vertical">
@@ -42,7 +27,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
             }}
           />
         </Resizable>
-        <Preview code={code} status={error} />
+        <Preview code={bundle.code} status={bundle.err} />
       </div>
     </Resizable>
   );
