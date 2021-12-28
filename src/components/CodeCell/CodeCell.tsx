@@ -4,7 +4,7 @@ import { Cell } from '../../state';
 import { CodeEditor } from '../CodeEditor';
 import { Preview } from '../Preview';
 import { Resizable } from '../Resizable';
-import { useActions, useTypedSelector } from '../../hooks';
+import { useActions, useCumulativeCode, useTypedSelector } from '../../hooks';
 
 interface CodeCellProps {
   cell: Cell;
@@ -15,44 +15,17 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const bundle = useTypedSelector(
     (state) => state.bundles && state.bundles[cell.id]
   );
-  const cumulativeCode = useTypedSelector((state) => {
-    if (state.cells) {
-      const { data, order } = state.cells;
-      const orderedCells = order.map((id) => data[id]);
-      const cc = [
-        `
-          const show = (value) => {
-            document.querySelector('#root').innerHTML = value;
-          }
-        `,
-      ];
-      for (let c of orderedCells) {
-        if (c.type === 'code') {
-          cc.push(c.content);
-        }
-        if (c.id === cell.id) {
-          break;
-        }
-      }
-      return cc;
-    }
-  });
+  const cumulativeCode = useCumulativeCode(cell.id);
 
   useEffect(() => {
     // we have to do this for the first render, else we observe delayed bundling
     if (!bundle) {
-      createBundle(
-        cell.id,
-        (cumulativeCode && cumulativeCode.join('\n')) ?? ''
-      );
+      createBundle(cell.id, cumulativeCode ?? '');
       return;
     }
 
     const timer = setTimeout(async () => {
-      createBundle(
-        cell.id,
-        (cumulativeCode && cumulativeCode.join('\n')) ?? ''
-      );
+      createBundle(cell.id, cumulativeCode ?? '');
     }, 1000);
 
     return () => {
@@ -60,7 +33,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     };
     // :( TODO: Maybe a better solution??
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cumulativeCode && cumulativeCode.join('\n'), cell.id, createBundle]);
+  }, [cumulativeCode, cell.id, createBundle]);
 
   return (
     <Resizable direction="vertical">
