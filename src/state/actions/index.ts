@@ -43,9 +43,17 @@ export interface BundleCreatedAction {
   };
 }
 
+export interface BundleStartAction {
+  type: ActionType.BUNDLE_START;
+  payload: {
+    cellId: string;
+  };
+}
+
 export type Action =
   | MoveCellAction
   | DeleteCellAction
   | InsertCellAfterAction
   | UpdateCellAction
-  | BundleCreatedAction;
+  | BundleCreatedAction
+  | BundleStartAction;
