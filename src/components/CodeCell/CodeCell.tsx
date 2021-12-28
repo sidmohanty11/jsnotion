@@ -15,16 +15,44 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const bundle = useTypedSelector(
     (state) => state.bundles && state.bundles[cell.id]
   );
+  const cumulativeCode = useTypedSelector((state) => {
+    if (state.cells) {
+      const { data, order } = state.cells;
+      const orderedCells = order.map((id) => data[id]);
+      const cc = [
+        `
+          const show = (value) => {
+            document.querySelector('#root').innerHTML = value;
+          }
+        `,
+      ];
+      for (let c of orderedCells) {
+        if (c.type === 'code') {
+          cc.push(c.content);
+        }
+        if (c.id === cell.id) {
+          break;
+        }
+      }
+      return cc;
+    }
+  });
 
   useEffect(() => {
     // we have to do this for the first render, else we observe delayed bundling
     if (!bundle) {
-      createBundle(cell.id, cell.content);
+      createBundle(
+        cell.id,
+        (cumulativeCode && cumulativeCode.join('\n')) ?? ''
+      );
       return;
     }
 
     const timer = setTimeout(async () => {
-      createBundle(cell.id, cell.content);
+      createBundle(
+        cell.id,
+        (cumulativeCode && cumulativeCode.join('\n')) ?? ''
+      );
     }, 1000);
 
     return () => {
@@ -32,7 +60,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     };
     // :( TODO: Maybe a better solution??
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cell.content, cell.id, createBundle]);
+  }, [cumulativeCode && cumulativeCode.join('\n'), cell.id, createBundle]);
 
   return (
     <Resizable direction="vertical">
