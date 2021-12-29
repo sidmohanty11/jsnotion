@@ -5,4 +5,7 @@ export enum ActionType {
   UPDATE_CELL = 'update_cell',
   BUNDLE_START = 'bundle_start',
   BUNDLE_CREATED = 'bundle_created',
+  FETCH_CELLS = 'fetch_cells',
+  FETCH_CELLS_COMPLETE = 'fetch_cells_complete',
+  FETCH_CELLS_ERROR = 'fetch_cells_error',
 }
