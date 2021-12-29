@@ -1,6 +1,6 @@
 {
   "name": "jsnotion",
-  "version": "1.0.6-alpha.0",
+  "version": "1.0.7-alpha.0",
   "license": "MIT",
   "main": "dist/index.js",
   "description": "",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@jssnippets/client": "^1.0.3",
-    "@jssnippets/server": "^1.0.5-alpha.0"
+    "@jssnippets/server": "^1.0.7-alpha.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.5",
