@@ -21,6 +21,7 @@ export const createCellsRouter = (filename: string, dir: string) => {
     } catch (err: any) {
       if (err.code === "ENOENT") {
         await fs.writeFile(fullPath, "[]", "utf-8");
+        console.log(`Created a file ${filename} at ${fullPath}`);
         res.send([]);
       } else {
         throw err;
