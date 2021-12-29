@@ -1,6 +1,6 @@
 {
   "name": "jsnotion",
-  "version": "1.0.3",
+  "version": "1.0.4-alpha.0",
   "license": "MIT",
   "description": "",
   "files": [
@@ -18,7 +18,7 @@
     "@jssnippets/client": "^1.0.3"
   },
   "devDependencies": {
-    "@jssnippets/server": "^1.0.3",
+    "@jssnippets/server": "^1.0.4-alpha.0",
     "@types/node": "^17.0.5",
     "commander": "^8.3.0",
     "esbuild": "0.8.26",
