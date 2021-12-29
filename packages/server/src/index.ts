@@ -22,8 +22,12 @@ export const serve = (
       })
     );
   } else {
-    const pkgPath = require.resolve("@jssnippets/client/build/index.html");
-    app.use(express.static(path.dirname(pkgPath)));
+    try {
+      const pkgPath = require.resolve("@jssnippets/client/build/index.html");
+      app.use(express.static(path.dirname(pkgPath)));
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return new Promise<void>((resolve, reject) => {

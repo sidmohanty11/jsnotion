@@ -23,7 +23,6 @@ export const createCellsRouter = (filename: string, dir: string) => {
         await fs.writeFile(fullPath, "[]", "utf-8");
         res.send([]);
       } else {
-        console.log("at else", err);
         throw err;
       }
     }
