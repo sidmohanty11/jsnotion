@@ -16,7 +16,7 @@ export const serveCmd = new Command()
       console.log(
         `Opened ${filename}. Navigate to http://localhost:${opts.port}/ to add your magic!`
       );
-    } catch (err) {
+    } catch (err: any) {
       if (err.code === "EADDRINUSE") {
         console.log(
           "Port already in use! Try running on different port, using -p or --port"
