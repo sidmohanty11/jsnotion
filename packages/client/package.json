@@ -1,8 +1,14 @@
 {
-  "name": "client",
+  "name": "@jssnippets/client",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
+  "description": "",
+  "files": [
+    "build"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@monaco-editor/react": "^4.3.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -29,6 +35,7 @@
     "react-scripts": "4.0.3",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
+    "prettier": "^2.5.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -36,7 +43,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepublishOnly": "yarn build"
   },
   "eslintConfig": {
     "extends": [
@@ -55,8 +63,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "prettier": "^2.5.1"
   }
 }

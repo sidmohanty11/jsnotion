@@ -1,6 +1,6 @@
 import path from "path";
 import { Command } from "commander";
-import { serve } from "server";
+import { serve } from "@jssnippets/server";
 
 const isProd = process.env.NODE_ENV === "production";
 
