@@ -1,6 +1,6 @@
 {
   "name": "@jssnippets/client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "files": [
     "build"
@@ -28,6 +28,7 @@
     "immer": "^9.0.7",
     "localforage": "^1.10.0",
     "monaco-editor": "^0.31.1",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "7.2.2",
@@ -35,7 +36,6 @@
     "react-scripts": "4.0.3",
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
-    "prettier": "^2.5.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },

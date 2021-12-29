@@ -21,7 +21,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@jssnippets/client": "^0.1.0",
+    "@jssnippets/client": "^1.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "http-proxy-middleware": "^2.0.1"
