@@ -1,5 +1,7 @@
 # jsnotion
 
+![npm](https://img.shields.io/npm/dm/jsnotion)
+
 A code documenting application that can 10x your productivity while learning to code.
 
 ## Installation
