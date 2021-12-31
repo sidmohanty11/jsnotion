@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === "production";
 export const serveCmd = new Command()
   .command("serve [filename]")
   .description("Open a file for editing")
-  .option("-p, --port <number>", "port to run server on", "1005")
+  .option("-p, --port <number>", "port to run server on", "3005")
   .action(async (filename = "notebook.js", opts: { port: string }) => {
     try {
       const dir = path.join(process.cwd(), path.dirname(filename));
