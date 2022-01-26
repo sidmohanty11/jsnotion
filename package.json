@@ -2,9 +2,13 @@
   "name": "jssnippets",
   "private": true,
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "husky": "^7.0.0"
   },
   "scripts": {
-    "start": "lerna run start --parallel"
+    "start": "lerna run start --parallel",
+    "prepare": "husky install",
+    "lint": "lerna run lint --parallel",
+    "format": "lerna run format --parallel"
   }
 }

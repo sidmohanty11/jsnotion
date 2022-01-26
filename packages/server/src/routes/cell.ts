@@ -1,11 +1,11 @@
-import express, { json } from "express";
-import fs from "fs/promises";
-import path from "path";
+import express, { json } from 'express';
+import fs from 'fs/promises';
+import path from 'path';
 
 interface Cell {
   id: string;
   content: string;
-  type: "text" | "code";
+  type: 'text' | 'code';
 }
 
 export const createCellsRouter = (filename: string, dir: string) => {
@@ -14,13 +14,13 @@ export const createCellsRouter = (filename: string, dir: string) => {
 
   router.use(json());
 
-  router.get("/cells", async (req, res) => {
+  router.get('/cells', async (req, res) => {
     try {
-      const result = await fs.readFile(fullPath, { encoding: "utf-8" });
+      const result = await fs.readFile(fullPath, { encoding: 'utf-8' });
       res.send(JSON.parse(result));
     } catch (err: any) {
-      if (err.code === "ENOENT") {
-        await fs.writeFile(fullPath, "[]", "utf-8");
+      if (err.code === 'ENOENT') {
+        await fs.writeFile(fullPath, '[]', 'utf-8');
         console.log(`Created a file ${filename} at ${fullPath}`);
         res.send([]);
       } else {
@@ -29,11 +29,11 @@ export const createCellsRouter = (filename: string, dir: string) => {
     }
   });
 
-  router.post("/cells", async (req, res) => {
+  router.post('/cells', async (req, res) => {
     const { cells }: { cells: Cell[] } = req.body;
-    await fs.writeFile(fullPath, JSON.stringify(cells), "utf-8");
+    await fs.writeFile(fullPath, JSON.stringify(cells), 'utf-8');
 
-    res.send({ status: "ok" });
+    res.send({ status: 'ok' });
   });
 
   return router;

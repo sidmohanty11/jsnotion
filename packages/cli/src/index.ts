@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { program } from "commander";
-import { serveCmd } from "./commands/serve";
+import { program } from 'commander';
+import { serveCmd } from './commands/serve';
 
 program.addCommand(serveCmd);
 

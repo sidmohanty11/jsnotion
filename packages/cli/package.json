@@ -13,7 +13,9 @@
   },
   "scripts": {
     "start": "tsc --watch --preserveWatchOutput",
-    "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\""
+    "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\"",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@jssnippets/client": "^1.0.3"
@@ -23,6 +25,7 @@
     "@types/node": "^17.0.5",
     "commander": "^8.3.0",
     "esbuild": "0.8.26",
+    "prettier": "^2.5.1",
     "typescript": "^4.5.4"
   },
   "gitHead": "8536515e35d1987955344c4e29dbc61c3450b9e2"
