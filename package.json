@@ -5,8 +5,9 @@
   },
   "private": true,
   "devDependencies": {
+    "husky": "^7.0.0",
     "lerna": "^3.22.1",
-    "husky": "^7.0.0"
+    "prettier": "^2.5.1"
   },
   "scripts": {
     "start": "lerna run start --parallel",
