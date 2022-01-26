@@ -15,4 +15,6 @@ jobs:
         with:
           node-version: 12
       - run: yarn
+      - run: yarn add -g lerna
+      - run: lerna bootstrap
       - run: yarn lint
