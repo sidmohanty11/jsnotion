@@ -14,7 +14,5 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: yarn
-      - run: yarn add -g lerna
-      - run: lerna bootstrap
-      - run: yarn lint
+      - run: yarn install
+      - run: npx lerna run lint --parallel
