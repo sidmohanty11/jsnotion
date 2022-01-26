@@ -1,5 +1,8 @@
 {
   "name": "jssnippets",
+  "author": {
+    "name": "sidmohanty11"
+  },
   "private": true,
   "devDependencies": {
     "lerna": "^3.22.1",
