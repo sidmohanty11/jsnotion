@@ -43,4 +43,4 @@ https://user-images.githubusercontent.com/73601258/147817907-1bbbc6c5-e1e5-4396-
 While this is a short preview of the application, in no way it shows all the capabilities of jsnotion. You can import anything (just about anything) and run it in your editor. Some examples include - making axios calls, importing CSS libraries, etc. React is prebuilt and you can use the `show()` function to display anything in your preview window.
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Follow [Contributing.md](./CONTRIBUTING.md) for more information.
