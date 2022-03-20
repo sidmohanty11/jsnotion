@@ -34,13 +34,14 @@ This is your goto command which will start a server at http://localhost:3005 and
 jsnotion serve notes.js -p 4000
 ```
 
-This is a more personalized command you can use to create/open a  file of your choice, in this case, notes.js and also the port of your choice i.e, 4000 here.
+This is a more personalized command you can use to create/open a file of your choice, in this case, notes.js and also the port of your choice i.e, 4000 here.
 
 ## Usage
 
 https://user-images.githubusercontent.com/73601258/147817907-1bbbc6c5-e1e5-4396-b025-a67111e063e3.mp4
 
 While this is a short preview of the application, in no way it shows all the capabilities of jsnotion. You can import anything (just about anything) and run it in your editor. Some examples include - making axios calls, importing CSS libraries, etc. React is prebuilt and you can use the `show()` function to display anything in your preview window.
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
