@@ -14,5 +14,6 @@
     "prepare": "husky install",
     "lint": "lerna run lint --parallel",
     "format": "lerna run format --parallel"
-  }
+  },
+  "version": "0.0.1"
 }
