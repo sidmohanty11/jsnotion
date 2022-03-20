@@ -1,6 +1,12 @@
-# jsnotion
+<h1 align="center">jsnotion</h1>
 
-![npm](https://img.shields.io/npm/dm/jsnotion)
+<p  align="center">
+  <img  src="https://user-images.githubusercontent.com/73601258/159173910-9b572a30-9d80-4464-b761-344832cf7efd.png" />
+</p>
+  
+<p  align="center">
+  <img src="https://img.shields.io/npm/dm/jsnotion" />
+</p>
 
 A code documenting application that can 10x your productivity while learning to code.
 
