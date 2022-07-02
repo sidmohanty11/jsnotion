@@ -1,6 +1,6 @@
 {
   "name": "@jssnippets/server",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "",
@@ -24,7 +24,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@jssnippets/client": "^1.1.0",
+    "@jssnippets/client": "^1.1.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "http-proxy-middleware": "^2.0.1"
