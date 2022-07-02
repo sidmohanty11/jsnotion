@@ -58,7 +58,6 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ initialValue, onChange }) => {
           scrollBeyondLastLine: false,
           automaticLayout: true,
           tabSize: 2,
-          fontFamily: 'Red Hat Mono, monospace',
         }}
         onChange={onChange}
       />
